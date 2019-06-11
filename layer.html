@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="MobileOptimized" content="176" />
+    <meta name="HandheldFriendly" content="True" />
+    <title>Constructor</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css?19" />
+  </head>
+  <body>
+    <div id="loader_wrap">
+      <div class="loader_cont">
+        <svg class="circle-loader progress" width="40" height="40" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="15" />
+        </svg>
+      </div>
+    </div>
+    <div id="tooltip" class="tooltip" onclick="App.tooltipHide()" ontouchstart="App.tooltipHide()">
+    </div>
+    <div id="step1">
+      <div class="wrap">
+        <div class="preview_wrap">
+          <div class="camera_button" onclick="App.openCamera()"></div>
+          <div class="gender_button" onclick="App.changeGender()"></div>
+          <div class="preview">
+            <div class="preview_cont">
+              <div id="preview"></div>
+            </div>
+          </div>
+          <div class="save_button" onclick="App.saveStickers(this)"></div>
+        </div>
+        <div class="constructor">
+          <div class="categories_wrap" id="categories"></div>
+          <div class="items_wrap" id="items"></div>
+        </div>
+      </div>
+    </div>
+    <div id="step2">
+      <div class="step2_cont">
+        <div class="step2_title" id="step2_title">Wow!</div>
+        <div id="step2_caption">Your stickerpack is ready.</div>
+        <div class="step2_small_text">Now you can go back to the chat.</div>
+      </div>
+    </div>
+    <div id="animation_step">
+      <div class="animation_title">Processing..</div>
+      <div class="animation_previews"></div>
+    </div>
+    <div id="stickers"></div>
+    <div id="error_wrap">
+      <div class="step2_cont">
+        <div class="step2_title" id="error_title">Error!</div>
+        <div id="error_text"></div>
+      </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/app.js?18" async></script>
+    <script type="text/javascript" src="https://stickerface.io/api/init.js" async></script>
+    <script type="text/javascript" src="js/utils.js" async></script>
+    <script type="text/javascript">
+      window.onload = function () {
+        App.parseParams();
+        App.init();
+        setTimeout(function () {
+          $('#loader_wrap').remove();
+        }, 1000);
+      };
+    </script>
+  </body>
+</html>
